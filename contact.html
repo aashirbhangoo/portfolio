@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Aashir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">AAB</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section glass">
+  <div class="section-inner">
+    <h2>Contact Me</h2>
+    <p id="contact-page-text">
+      Interested in collaboration, freelance work, or offering a job?
+      Fill out the form below.
+    </p>
+
+    <form id="contact-form" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5"
+        placeholder="What do you want to discuss?" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="animations.js"></script>
+
+<script>
+  emailjs.init("pKJq1DUHPnXjHwXZE");
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_rn30qyb",
+      "template_zqylwb2",
+      this
+    ).then(() => {
+      alert("Message sent successfully.");
+      this.reset();
+    }, () => {
+      alert("Failed to send message.");
+    });
+  });
+</script>
+
+</body>
+</html>
